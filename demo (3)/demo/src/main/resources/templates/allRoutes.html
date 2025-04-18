@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Маршруты</title>
+</head>
+<body>
+<h1>Список Маршрутов</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Номер</th>
+            <th>Начальная точка</th>
+            <th>Конечная точка</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="route : ${routes}">
+            <td th:text="${route.id}"></td>
+            <td th:text="${route.num}"></td>
+            <td th:text="${route.begin_point}"></td>
+            <td thth:text="${route.end_point}"></td>
+            <td>
+                <form th:action="@{/routes/{id}(id=${route.id})}" method="post">
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">На главную страницу</a>
+<a href="/routes/add">Добавить новый маршрут</a>
+</body>
+</html>

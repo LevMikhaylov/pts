@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список автобусов</title>
+</head>
+<body>
+    <h1>Список автобусов</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Марка</th>
+                <th>Бортовой номер</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bus : ${buses}">
+                <td th:text="${bus.brand}"></td>
+                <td th:text="${bus.bort_num}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}">На главную страницу</a>
+    <a th:href= "@{/allBuses/{id}(id=${bus.id})}">Найти автобус по id</a>
+    <a th:href="@{/post}">Добавить автобус</a>
+    <a th:href= "@{/busUpdate/{id} (id=${bus.id})}">Редактировать автобус</a>
+    <a th:href= "@{/busDelete/{id} (id=${bus.id})}">Удалить атобус</a>
+</body>

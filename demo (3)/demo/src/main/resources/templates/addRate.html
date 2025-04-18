@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить Тариф</title>
+</head>
+<body>
+
+<h1>Добавить Тариф</h1>
+
+<form th:action="@{/rates/add}" th:object="${rate}" method="post">
+    
+    <label for="price">Цена:</label>
+    <input type="number" id="price" th:field="*{price}" required/>
+    
+    <button type="submit">Добавить</button>
+</form>
+
+<a href="/rates/allRates">Назад</a>
+
+</body>
+</html>

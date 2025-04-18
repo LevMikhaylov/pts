@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Update</title>
+</head>
+<body>
+<div>
+    <h1>Manage Bus</h1>
+
+    <!-- Section for updating a bus -->
+    <h2>Update Bus</h2>
+    <form th:action="@{/busUpdate/{id}(id=${bus.id})}" method="post" th:object="${bus}" th:method="put">
+        <input type="text" th:field="*{id}"/>
+        <div class="form-group">
+            <label for="brand">Bus Brand:</label>
+            <input type="text" th:field="*{brand}" required/>
+        </div>
+        <div>
+            <label for="bort_num">Bort_num:</label>
+            <input type="number" th:field="*{bort_num}" required/>
+        </div>
+        <button type="submit">Update Bus</button>
+    </form>
+    <a th:href="@{/allBuses}">Вернуться к списку автобусов</a>
+</div>
+</body>

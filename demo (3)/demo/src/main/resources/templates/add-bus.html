@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить автобус</title>
+</head>
+<body>
+    <h1>Добавить новый автобус</h1>
+
+    <form action="#" th:action="@{/post}" th:object="${bus}" method="post">
+        <div>
+            <label for="busNumber">Номер автобуса:</label>
+            <input type="text" id="busNumber" th:field="*{bort_num}" required/>
+            <div th:if="${#fields.hasErrors('busNumber')}" th:errors="*{busNumber}">Ошибка!</div>
+        </div>
+
+        <div>
+            <label for="busModel">Модель автобуса:</label>
+            <input type="text" id="busModel" th:field="*{brand}" required/>
+            <div th:if="${#fields.hasErrors('busModel')}" th:errors="*{brand}">Ошибка!</div>
+        </div>
+
+        <div>
+            <button type="submit">Добавить автобус</button>
+        </div>
+    </form>
+
+    <div>
+        <a th:href="@{/allBuses}">Вернуться к списку автобусов</a>
+    </div>
+</body>
+</html>
