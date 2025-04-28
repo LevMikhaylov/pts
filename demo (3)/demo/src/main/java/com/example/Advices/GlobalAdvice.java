@@ -1,3 +1,4 @@
+package com.example.Advices;
 @ControllerAdvice
 public class GlobalAdvice {
 
