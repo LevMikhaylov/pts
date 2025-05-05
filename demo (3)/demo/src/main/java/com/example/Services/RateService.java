@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.Entities.Rate;
 import com.example.Repositories.RateRepository;
-
+import javax.validation.constraints.NotNull;
 import jakarta.validation.Valid;
 
 @Service
 public class RateService {
     @Autowired
     private RateRepository rr;
-    public Route addRate(@Valid Rate rate){
+    public Route addRate(@Valid @NotNull Rate rate){
         return rr.save(rate);
     }
     public void deleteRate(long id){
@@ -30,7 +30,7 @@ public class RateService {
     public Rate findByID(long id){
         return rr.findById(id).orElse(null);
     }
-    public void updateRate(long id,double price,@Valid Rate updatedRate){
+    public void updateRate(long id,@NotNull double price,@Valid @NotNull Rate updatedRate){
         if (rr.existsById(id)) {
             updatedRate.setPrice(price)
             rr.save(updatedbus);
