@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Entities.Route;
 import com.example.Repositories.RouteRepository;
-
+import javax.validation.constraints.NotNull;
 import jakarta.validation.Valid;
 
 @Service
@@ -15,7 +15,7 @@ public class RouteService {
     @Autowired
     private RouteRepository rrp;
 
-    public Route launchRoute(@Valid Route route){
+    public Route launchRoute(@Valid @NotNull Route route){
         return rrp.save(route);
     }
     public void cancelRoute(long id){
